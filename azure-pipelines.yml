@@ -1,7 +1,7 @@
 trigger:
   branches:
     include:
-      - master
+      - main
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -24,4 +24,4 @@ steps:
       git remote add destino https://$(github_token)@github.com/desarrollounisupergt/unicenso2.git
 
       echo "Haciendo push forzado a destino..."
-      git push destino master --force
+      git push destino main --force
