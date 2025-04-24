@@ -21,7 +21,7 @@ steps:
       git config --global user.name "desarrollo"
 
       echo "Agregando repositorio destino..."
-      git remote add destination https://$(github_token)@github.com/desarrollounisupergt/unicenso2.git
+      git remote add destino https://$(github_token)@github.com/desarrollounisupergt/unicenso2.git
 
       echo "Haciendo push forzado a destino..."
-      git push destination master --force
+      git push destino master --force
