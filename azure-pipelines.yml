@@ -1,0 +1,27 @@
+trigger:
+  branches:
+    include:
+      - master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  github_token: $(GITHUB_TOKEN)  # Variable secreta configurada en el pipeline
+
+steps:
+- checkout: self
+
+- task: Bash@3
+  displayName: 'Sincronizar rama con repositorio destino'
+  inputs:
+    targetType: 'inline'
+    script: |
+      git config --global user.email "desarrollo@unisupergt.com"
+      git config --global user.name "desarrollo"
+
+      echo "Agregando repositorio destino..."
+      git remote add destination https://$(github_token)@github.com/desarrollounisupergt/unicenso2.git
+
+      echo "Haciendo push forzado a destino..."
+      git push destination master --force
